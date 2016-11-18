@@ -1,0 +1,26 @@
+{
+  "name": "trippr",
+  "version": "1.0.0",
+  "description": "App to find cheap flights by date",
+  "main": "index.js",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "http-server": "^0.9.0"
+  },
+  "devDependencies": {
+    "sabre-dev-studio": "^1.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrewcheap/trippr.git"
+  },
+  "author": "Andrew Cheap",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrewcheap/trippr/issues"
+  },
+  "homepage": "https://github.com/andrewcheap/trippr#readme"
+}
