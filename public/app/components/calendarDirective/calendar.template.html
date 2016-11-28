@@ -1,0 +1,13 @@
+<div class="input-group">
+	<input type="text" class="form-control" uib-datepicker-popup ng-model="calendar.departureDate" is-open="calendar.popupDepartureCalendar.opened" datepicker-options="calendar.dateOptionsDeparture" ng-change="calendar.updateDate()" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" show-button-bar="false">
+	<span class="input-group-btn">
+		<button class="btn btn-default glyphicon glyphicon-calendar" ng-click="calendar.openDepartureCalendar()"></button>
+	</span>
+</div>	
+<div class="input-group">
+	<input type="text" class="form-control" uib-datepicker-popup ng-model="calendar.returnDate" is-open="calendar.popupReturnCalendar.opened" datepicker-options="calendar.dateOptionsReturn" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" show-button-bar="false">
+	<span class="input-group-btn">
+		<button class="btn btn-default glyphicon glyphicon-calendar"
+			ng-click="calendar.openReturnCalendar()"></button>
+	</span>
+</div>	

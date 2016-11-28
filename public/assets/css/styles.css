@@ -1,0 +1,30 @@
+.logo {
+	width: 100px;
+	display: inline-block;
+	position: relative;
+	top: -20px;
+}
+
+.page-header h1 {
+	display: inline-block;
+	font-size: 100px;
+	margin: 0 40px;
+	color: white;
+}
+
+.banner {
+	background-image: url('bg.jpg');
+	background-size: cover;
+}
+
+form {
+	padding-bottom: 50px;
+}
+
+div.inline {
+	display: inline-block;
+}
+
+.glyphicon-calendar {
+	top: 0px;
+}

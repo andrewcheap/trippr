@@ -1,0 +1,15 @@
+SKYCANNER
+https://support.business.skyscanner.net/hc/en-us/articles/211487049-Cheapest-quotes
+
+PROS
+Free
+
+CONS
+Basically just returns searches from their databases.  So only returns the prices on specific routes that have been searched.
+
+EXAMPLES
+http://partners.api.skyscanner.net/apiservices/browsequotes/v1.0/US/USD/en-US/BOS-sky/SFO-sky/2016-11-07/2016-11-14?apiKey=tr801784330681113040128314526342
+
+http://partners.api.skyscanner.net/apiservices/browseroutes/v1.0/US/USD/en-US/BOS-sky/anywhere/2016-11-07/2016-11-14?apiKey=tr801784330681113040128314526342
+
+http://partners.api.skyscanner.net/apiservices/browsedates/v1.0/US/USD/en-US/BOS/anywhere/2016-11-07/2016-11-07?apiKey=tr801784330681113040128314526342

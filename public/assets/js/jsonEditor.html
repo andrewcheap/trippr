@@ -1,0 +1,90 @@
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+
+		var url = "airportsRaw.json";
+		var http;
+		makeRequest(url);
+
+		function makeRequest(url) {
+			// Detect if browser supports XMLHttpRequest API
+			if(window.XMLHttpRequest) {
+				http = new XMLHttpRequest();
+			}	
+			// Case for IE 6 and IE 5
+			else if (window.ActiveXObject) {
+				http = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+
+			// If a new XMLHttpRequest instance was created
+			if(http) {
+				http.overrideMimeType("application/json");
+				// Call loadData when the readyState changes
+				http.onreadystatechange = loadData; // Calls on open, send and done 
+
+				// Initialize the request and set parameters
+				http.open("GET", url, true);
+
+				// Send the request
+				http.send(null);
+			}
+			else {
+				console.log("No request made!");
+			}
+
+
+		}
+
+		function loadData() {
+			// Check if the http request is done
+			if(http.readyState == 4 && http.status == 200) {
+
+				var text = http.responseText;
+				var data = JSON.parse(text);
+				cleanData(data);
+
+			}
+		}
+
+		var airportObj = [];
+
+		function Airport(city, name, code, country) {
+			this.searchCode = city + " " + name + " " + code;
+			this.cityCode = city + " (" + code + ")";
+			this.city = city;
+			this.name = name;
+			this.code = code;
+			this.country = country;
+		}
+
+		function cleanData(dirtyObject) {
+			for (var property in dirtyObject) {
+				if (dirtyObject.hasOwnProperty(property)) {
+					if((dirtyObject[property].iata !== "") && (dirtyObject[property].country === "US")){
+						var searchCode = dirtyObject[property].searchCode;
+						var cityCode = dirtyObject[property].cityCode;
+						var city = dirtyObject[property].city;
+						var name = dirtyObject[property].name;
+						var code = dirtyObject[property].iata;
+						var country = dirtyObject[property].country;
+
+						// Add new objects to parent object
+						// Name each object by concat on city and code
+						airportObj.push(new Airport(city, name, code, country));
+					}
+			    }
+			}
+			console.log(airportObj.length)
+			var cleanJSON = JSON.stringify(airportObj);
+			// Use this to copy and past the clean JSON output
+			// Use jsonlint.com
+			// console.log(cleanJSON);  
+		}
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>
