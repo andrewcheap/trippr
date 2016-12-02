@@ -5,24 +5,41 @@
 		.component('airportSearch', {
 			templateUrl: 'app/components/airportSearchDirective/airportSearch.template.html',
 			controller: airportSearchController,
-			controllerAs: 'airportSearch',
-			bindings: {
-			}
+			controllerAs: 'airportSearch'
 		})
 
-		function airportSearchController($http, $scope) {
+		function airportSearchController($q, $scope, airportCodeService) {
 			var self = this;
+			self.hasAirport = hasAirport;
 
 
-			$http({
-				method: 'GET',
-				url: '../assets/js/airports.json'
-			}).then(function successCallback(response) {
-					$scope.airports = response.data;
-			}, function errorCallback(response) {
-				console.log("failed to get data");
+			airportCodeService.getAirportCodes().then(function(r) {
+				$scope.airports = r;
 			});
 
+			$scope.$watch('airport', function(){
+				airportCodeService.setAirportObj($scope.airport);
+			})
+
+			// Check if the airport input has been completed
+			self.airportSelected = false;
+			function hasAirport() {
+				console.log("airportSelected", self.airportSelected)
+				if(typeof $scope.airport == 'object') {
+					self.airportSelected = true;
+				}
+			}
+			
+			
+			// $http({
+			// 	method: 'GET',
+			// 	url: '../assets/js/airports.json'
+			// }).then(function successCallback(response) {
+			// 		$scope.airports = response.data;
+			// }, function errorCallback(response) {
+			// 	console.log("failed to get data");
+			// });
+			
 
 
 		}

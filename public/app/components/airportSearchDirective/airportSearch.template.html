@@ -1,1 +1,1 @@
-<input type="text" ng-model="airportObject" placeholder="go places..." typeahead-wait-ms="500" uib-typeahead="airport as airport.cityCode for airport in airports | filter:{searchCode:$viewValue} | limitTo:5" typeahead-min-length="3" class="form-control">
+<input type="text" ng-model="airport" placeholder="go places..." typeahead-wait-ms="500" uib-typeahead="airport as airport.cityCode for airport in airports | filter:$viewValue | limitTo:5" typeahead-min-length="3" class="form-control">

@@ -2,15 +2,13 @@
 	'use strict';
 
 	angular.module('trippr.calendar')
-		.component('tripprCalendar', {
+		.component('calendar', {
 			templateUrl: 'app/components/calendarDirective/calendar.template.html',
 			controller: calendarController,
 			controllerAs: 'calendar',
-			bindings: {
-			}
 		})
 
-		function calendarController($scope) {
+		function calendarController($scope, calendarDateService) {
 
 			var self = this;
 
@@ -24,6 +22,7 @@
 			function activate() {
 				self.departureDate = new Date();
 				self.returnDate = new Date();
+				calendarDateService.setDates(self.departureDate, self.returnDate);
 			}
 
 			self.popupDepartureCalendar = {
@@ -43,35 +42,32 @@
 			}
 
 			self.dateOptionsDeparture = {
-				formatYear: 'yy',
+				showWeeks: false,
 				maxDate: new Date(new Date().setFullYear(new Date().getFullYear() + 1)),
 				minDate: new Date(),
 				startingDay: 1
 			}
 
-			function updateDate() {
-				console.log("departure", self.departureDate);
-				console.log("return", self.returnDate);
-				// Watch the departureDate.  
-				$scope.$watch('departureDate', function() {
-					console.log("departure", self.departureDate);
-					console.log("return", self.returnDate);
-					// We check change the returnDate to be on or after the departureDate.
-					if(self.returnDate < self.departureDate) {
-						self.returnDate = self.departureDate;
-					}
+			$scope.format = 'dd-MMMM-yyyy';
 
-					// We update the return date options so that
-					// the user cannot select a date before the departure date.
-					self.dateOptionsReturn = {
-						formatYear: 'yy',
-						maxDate: new Date(new Date().setFullYear(new Date().getFullYear() + 1)),
-						minDate: self.departureDate,
-						startingDay: 1
-					};
-				});
+			// called when the dates are changed in the calendar
+			function updateDate() { 
+				// We check change the returnDate to be on or after the departureDate.
+				if(self.returnDate < self.departureDate) {
+					self.returnDate = self.departureDate;
+				}
+
+				// We update the return date options so that
+				// the user cannot select a date before the departure date.
+				self.dateOptionsReturn = {
+					showWeeks: false,
+					maxDate: new Date(new Date().setFullYear(new Date().getFullYear() + 1)),
+					minDate: self.departureDate,
+					startingDay: 1
+				};
+
+				// Set dates in service
+				calendarDateService.setDates(self.departureDate, self.returnDate);
 			}
-
-
 	}
 })();

@@ -1,9 +1,27 @@
-<form class="form-inline">
-	<div col="row">
-		<div class="col-md-9 col-md-push-2">	
-			<airport-search></airport-search>
-			<trippr-calendar dates=""></trippr-calendar>
-			<button type="button" class="btn btn-default" ng-click="submitData()">Go!</button>
+<div class="banner">
+	<div class="container">
+		<div class="page-header">
+			<img class="logo" src="../assets/css/air-transport.svg">
+			<h1>trippr</h1>
 		</div>
 	</div>
-</form>
+	<!-- Search section -->
+	<div class="container">
+		<form class="form-inline">
+			<div col="row">
+				<div class="col-md-9 col-md-push-2">
+					<airport-search></airport-search>
+					<calendar></calendar>
+					<button type="button" class="btn btn-default" ng-disabled="airportSearch.airportSelected" ng-click="searchCtrl.submitData();">Go!</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<!-- Results section -->
+<div class="container">
+	<div class="row">
+		<p>{{searchCtrl.flightInfoObj}}</p>
+		<results flights="searchCtrl.flightInfoObj"></results>
+	</div>
+</div>

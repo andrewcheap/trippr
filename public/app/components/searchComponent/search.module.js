@@ -5,7 +5,8 @@
 
 		// Internal dependencies
 		'trippr.airportSearch',
-		'trippr.calendar'
+		'trippr.calendar',
+		'trippr.results'
 
 
 	]);
