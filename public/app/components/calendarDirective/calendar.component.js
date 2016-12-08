@@ -8,7 +8,7 @@
 			controllerAs: 'calendar',
 		})
 
-		function calendarController($scope, calendarDateService) {
+		function calendarController(calendarDateService) {
 
 			var self = this;
 
@@ -48,7 +48,6 @@
 				startingDay: 1
 			}
 
-			$scope.format = 'dd-MMMM-yyyy';
 
 			// called when the dates are changed in the calendar
 			function updateDate() { 

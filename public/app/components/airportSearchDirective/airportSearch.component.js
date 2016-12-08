@@ -29,18 +29,5 @@
 					self.airportSelected = true;
 				}
 			}
-			
-			
-			// $http({
-			// 	method: 'GET',
-			// 	url: '../assets/js/airports.json'
-			// }).then(function successCallback(response) {
-			// 		$scope.airports = response.data;
-			// }, function errorCallback(response) {
-			// 	console.log("failed to get data");
-			// });
-			
-
-
 		}
 })();
