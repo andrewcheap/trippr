@@ -8,16 +8,13 @@
 			templateUrl: 'app/components/searchComponent/search.template.html',
 	});
 
-	function searchController($http, $filter, $scope, airportCodeService, calendarDateService, apiDataService) {
+	function searchController($http, $filter, airportCodeService, calendarDateService, apiDataService) {
 	
 	var self = this;
 
 	self.airportObj = {};
 	self.dateObj = {};
 
-	// $scope.$watch('airportCodeService.airportCode', function() {
-	// 	console.log("airport service fires", airportCodeService.getAirportObj());
-	// })
 	
 	self.submitData = function() {
 		// Get the airport object from the serivce
@@ -30,21 +27,14 @@
 		self.departureDate = $filter('date')(self.dateObj.departureDate, 'yyyy-MM-dd')
 		self.returnDate = $filter('date')(self.dateObj.returnDate, 'yyyy-MM-dd')
 
-		// Set the airport variable
-		console.log(self.airportObj.code)
-		// self.airportCode = self.airportObj.code;
-
-		console.log(self.departureDate);
-		console.log(self.returnDate);
-
 		apiDataService.getFlightInfo(self.departureDate, self.returnDate, self.airportObj.code)
 			.then(function(r){
-				// console.log(r.info);
-				var flightInfoObj = JSON.parse(r.info);
-				console.log(flightInfoObj);
-
+				self.flightInfoObj = JSON.parse(r.info).FareInfo;
+				// console.log(self.flightInfoObj);
 			});
+
 		};
+
 
 
 	}
