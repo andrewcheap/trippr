@@ -3,6 +3,7 @@
 
 	angular.module('trippr.results', [
 
-
+		// External dependencies
+		'ui.bootstrap'
 	]);
 })();

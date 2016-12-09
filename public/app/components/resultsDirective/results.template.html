@@ -1,3 +1,4 @@
+ <ul uib-pagination total-items="results.totalItems" ng-model="results.currentPage" items-per-page="results.itemsPerPage" class="pagination-sm"></ul>
 <table class="table">
 	<thead>
 		<th>Destination</th>
@@ -5,10 +6,11 @@
 		<th>Departure Date/Time</th>
 		<th>Return Date/Time</th>
 	</thead>
-	<tbody>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
+	<tbody ng-repeat="flight in results.flightPage">
+		<td>{{flight.DestinationLocation}}</td>
+		<td>{{flight.LowestFare | currency}}</td>
+		<td>{{flight.DepartureDateTime}}</td>
+		<td>{{flight.ReturnDateTime}}</td>
 	</tbody>
 </table>
+ <ul uib-pagination total-items="results.totalItems" ng-model="results.currentPage" items-per-page="results.itemsPerPage" class="pagination-sm"></ul>

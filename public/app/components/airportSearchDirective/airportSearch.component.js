@@ -17,14 +17,16 @@
 				$scope.airports = r;
 			});
 
-			$scope.$watch('airport', function(){
-				airportCodeService.setAirportObj($scope.airport);
+			$scope.$watch('airport', function(newValue, oldValue){
+				if(newValue !== oldValue) {
+					airportCodeService.setAirportObj($scope.airport);
+				}
+				
 			})
 
 			// Check if the airport input has been completed
 			self.airportSelected = false;
 			function hasAirport() {
-				console.log("airportSelected", self.airportSelected)
 				if(typeof $scope.airport == 'object') {
 					self.airportSelected = true;
 				}
