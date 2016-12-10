@@ -10,9 +10,9 @@
 		<form class="form-inline">
 			<div col="row">
 				<div class="col-md-9 col-md-push-2">
-					<airport-search></airport-search>
+					<airport-search valid="searchCtrl.isValid"></airport-search>
 					<calendar></calendar>
-					<button type="button" class="btn btn-default" ng-disabled="airportSearch.airportSelected" ng-click="searchCtrl.submitData();">Go!</button>
+					<button ng-disabled="!searchCtrl.isValid" type="button" class="btn btn-default" ng-disabled="airportSearch.airportSelected" ng-click="searchCtrl.submitData();">Go!</button>
 				</div>
 			</div>
 		</form>
@@ -24,3 +24,5 @@
 		<results flights="searchCtrl.flightInfoObj"></results>
 	</div>
 </div>
+
+  

@@ -3,10 +3,14 @@
 
 	angular.module('trippr.search', [
 
+		// External dependencies
+		'ui.bootstrap',
+
 		// Internal dependencies
 		'trippr.airportSearch',
 		'trippr.calendar',
-		'trippr.results'
+		'trippr.results',
+		'trippr.modal',
 
 
 	]);

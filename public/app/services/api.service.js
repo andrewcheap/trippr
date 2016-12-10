@@ -16,7 +16,14 @@
         var url = '/api/v1/places?origin='+ airportCode +'&departuredate='+ departureDate +'&returndate='+ returnDate +'';
 
         $http.get(url).then(function(response) {
+
+          //If data comes back then resolve the promise.
+          // Otherwise, reject the promise and send error message.
+          if(response.data.status) {
             deferred.resolve(response.data);
+          } else {
+            deferred.reject(response.data.message)
+          }
             
         }, function(data) {
           deferred.resolve(data);
