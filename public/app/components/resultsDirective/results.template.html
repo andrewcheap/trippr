@@ -1,10 +1,10 @@
  <ul uib-pagination total-items="results.totalItems" ng-model="results.currentPage" items-per-page="results.itemsPerPage" class="pagination-sm"></ul>
 <table class="table">
 	<thead>
-		<th>Destination</th>
-		<th>Price</th>
-		<th>Departure Date/Time</th>
-		<th>Return Date/Time</th>
+		<th><a ng-click="results.sortBy('DestinationLocation')">Destination</a></th>
+		<th><a ng-click="results.sortBy('LowestFare')">Price</a></th>
+		<th><a ng-click="results.sortBy('DepartureDateTime')">Departure Date/Time</a></th>
+		<th><a ng-click="results.sortBy('ReturnDateTime')">Return Date/Time</a></th>
 	</thead>
 	<tbody ng-repeat="flight in results.flightPage">
 		<td>{{flight.DestinationLocation}}</td>
