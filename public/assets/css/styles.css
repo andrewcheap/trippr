@@ -28,3 +28,16 @@ div.inline {
 .glyphicon-calendar {
 	top: 0px;
 }
+
+.input-group, airport-search input {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+results a {
+	cursor: pointer;
+}
+
+.navbar {
+	margin-bottom: 0px;
+}
