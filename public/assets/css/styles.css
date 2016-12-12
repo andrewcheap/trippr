@@ -34,7 +34,7 @@ div.inline {
 	margin-bottom: 10px;
 }
 
-results a {
+results a, favorites a {
 	cursor: pointer;
 }
 
