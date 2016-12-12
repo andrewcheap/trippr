@@ -9,6 +9,7 @@
       var self = this;
       self.getFavorites = getFavorites;
 
+      // Gets object from localStorage
       function getFavorites() {
         return JSON.parse(localStorage.getItem('favoritesArray')) || [];
       }

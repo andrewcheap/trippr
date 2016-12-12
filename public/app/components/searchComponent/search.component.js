@@ -31,14 +31,14 @@
 		self.departureDate = $filter('date')(self.dateObj.departureDate, 'yyyy-MM-dd')
 		self.returnDate = $filter('date')(self.dateObj.returnDate, 'yyyy-MM-dd')
 
+		// Calls the Promise function and handle response
 		apiDataService.getFlightInfo(self.departureDate, self.returnDate, self.airportObj.code)
 			.then(function(r){
 				self.flightInfoObj = filterPrices(JSON.parse(r.info).FareInfo);
-				self.hasData = (self.flightInfoObj > 0);
 			},
 			function(error) {
-				self.openModal();
-					self.hasData = false;
+					// If no data returned, open error modal
+					self.openModal();
                 	console.log(error);
     			});
 		};

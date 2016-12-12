@@ -9,6 +9,7 @@
       var self = this;
       self.getFlightInfo = getFlightInfo;
 
+      // Function makes asynchronous request and returns a promise
       function getFlightInfo(departureDate, returnDate, airportCode) {
         
         var deferred = $q.defer();
@@ -26,9 +27,11 @@
           }
             
         }, function(data) {
-          deferred.resolve(data);
+            // Error callback rejects the promise
+            deferred.reject(data);
         })
         
+        // Retrieve the promise once it has been resolved or rejected
         return deferred.promise;
       }
     }
