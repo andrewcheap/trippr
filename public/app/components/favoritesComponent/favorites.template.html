@@ -1,18 +1,19 @@
+ <div class="container">
+ <h2>My Favorites</h2>
  <ul uib-pagination total-items="results.totalItems" ng-model="results.currentPage" items-per-page="results.itemsPerPage" class="pagination-sm"></ul>
 <table class="table">
 	<thead>
-		<th><a ng-click="results.sortBy('DestinationLocation')">Destination</a></th>
-		<th><a ng-click="results.sortBy('LowestFare')">Price</a></th>
-		<th><a ng-click="results.sortBy('DepartureDateTime')">Departure Date/Time</a></th>
-		<th><a ng-click="results.sortBy('ReturnDateTime')">Return Date/Time</a></th>
-		<th>Favorites</th>
+		<th><a ng-click="favoritesCtrl.sortBy('DestinationLocation')">Destination</a></th>
+		<th><a ng-click="favoritesCtrl.sortBy('LowestFare')">Price</a></th>
+		<th><a ng-click="favoritesCtrl.sortBy('DepartureDateTime')">Departure Date/Time</a></th>
+		<th><a ng-click="favoritesCtrl.sortBy('ReturnDateTime')">Return Date/Time</a></th>
 	</thead>
-	<tbody ng-repeat="flight in results.flightPage">
+	<tbody ng-repeat="flight in favoritesCtrl.userFavorites">
 		<td>{{flight.DestinationLocation}}</td>
 		<td>{{flight.LowestFare | currency}}</td>
 		<td>{{flight.DepartureDateTime}}</td>
 		<td>{{flight.ReturnDateTime}}</td>
-		<td><input type="checkbox" ng-model="flight.favorited" ng-true-value="true" ng-false-value="false" ng-click="results.saveFlight(flight)"></td>
 	</tbody>
 </table>
  <ul uib-pagination total-items="results.totalItems" ng-model="results.currentPage" items-per-page="results.itemsPerPage" class="pagination-sm"></ul>
+ </div>

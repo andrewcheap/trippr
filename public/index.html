@@ -12,10 +12,20 @@
 
 </head>
 <body>
-	<search></search>
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+		<ul class="nav navbar-nav navbar-right">
+	        <li><a href="#!/search">Search</a></li>
+	        <li><a href="#!/favorites">Favorites</a></li>
+	    </ul>
+	  </div><!-- /.container-fluid -->
+	</nav>
+	<div ng-view></div>
+	<!-- <search></search> -->
 
 
 	<script type="text/javascript" src="bower/angular/angular.js"></script>
+	<script type="text/javascript" src="bower/angular-route/angular-route.js"></script>
 	<script type="text/javascript" src="bower/angular-bootstrap/ui-bootstrap.js"></script>
 	<script type="text/javascript" src="bower/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 
@@ -28,16 +38,21 @@
 	<script type="text/javascript" src="app/components/calendarDirective/calendar.component.js"></script>
 
 	<script type="text/javascript" src="app/components/resultsDirective/results.module.js"></script>
-	<script type="text/javascript" src="app/services/results.service.js"></script>
 	<script type="text/javascript" src="app/components/resultsDirective/results.component.js"></script>
 
 	<script type="text/javascript" src="app/components/searchComponent/search.module.js"></script>
 	<script type="text/javascript" src="app/services/api.service.js"></script>
 	<script type="text/javascript" src="app/components/searchComponent/search.component.js"></script>
 
+	<script type="text/javascript" src="app/components/favoritesComponent/favorites.module.js"></script>
+	<script type="text/javascript" src="app/services/favorites.service.js"></script>
+	<script type="text/javascript" src="app/components/favoritesComponent/favorites.component.js"></script>
+
 	<script type="text/javascript" src="app/components/modalDirective/modal.module.js"></script>
 	<script type="text/javascript" src="app/components/modalDirective/modal.component.js"></script>
 
+	<script type="text/javascript" src="app/routes/routes.module.js"></script>
+	<script type="text/javascript" src="app/routes/routes.config.js"></script>
 
 	<script type="text/javascript" src="app/app.js"></script>
 

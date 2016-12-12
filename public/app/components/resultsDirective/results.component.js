@@ -15,6 +15,7 @@
 			var self = this;
 
 			self.sortBy = sortBy;
+			self.saveFlight = saveFlight;
 
 			self.totalItems = [];
 
@@ -68,6 +69,25 @@
 			  setPagingData(1);
 
 			};
+
+			// Save flight to local storage
+			function saveFlight(flight) {
+
+				var favorites = [];
+
+				// Each time a flight is checkmarked we have to look through all the flights
+				// and add them to the array
+				self.flights.forEach(function(item) {
+					if(item.favorited) {
+
+						// Add the favorited items to the array
+						favorites.push(item);
+					}
+				})
+
+				// Overwrite the storage with the new array
+				localStorage.setItem('favoritesArray', JSON.stringify(favorites));
+			}
 
 
 		}
