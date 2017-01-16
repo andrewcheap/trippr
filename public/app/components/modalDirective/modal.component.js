@@ -1,5 +1,6 @@
 (function() {
 	'use strict';
+	/*jshint validthis: true */
 
 	angular.module('trippr.modal')
 		.component('modal', {

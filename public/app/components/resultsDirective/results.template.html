@@ -10,8 +10,8 @@
 	<tbody ng-repeat="flight in results.flightPage">
 		<td>{{flight.DestinationLocation}}</td>
 		<td>{{flight.LowestFare | currency}}</td>
-		<td>{{flight.DepartureDateTime}}</td>
-		<td>{{flight.ReturnDateTime}}</td>
+		<td>{{flight.DepartureDateTime | date: 'medium'}}</td>
+		<td>{{flight.ReturnDateTime | date: 'medium'}}</td>
 		<td><input type="checkbox" ng-model="flight.favorited" ng-true-value="true" ng-false-value="false" ng-click="results.saveFlight(flight)"></td>
 	</tbody>
 </table>

@@ -10,8 +10,8 @@
 		<tbody ng-repeat="flight in favoritesCtrl.userFavorites">
 			<td>{{flight.DestinationLocation}}</td>
 			<td>{{flight.LowestFare | currency}}</td>
-			<td>{{flight.DepartureDateTime}}</td>
-			<td>{{flight.ReturnDateTime}}</td>
+			<td>{{flight.DepartureDateTime | date: 'medium'}}</td>
+			<td>{{flight.ReturnDateTime | date: 'medium'}}</td>
 		</tbody>
 	</table>
  </div>

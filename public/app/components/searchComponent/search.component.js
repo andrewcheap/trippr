@@ -1,5 +1,6 @@
 (function() {
 	'use strict';
+	/*jshint validthis: true */
 
 	angular.module('trippr.search')
 		.component('search', {
@@ -28,8 +29,8 @@
 		self.dateObj = calendarDateService.getDates();
 
 		// Set the date variables and format
-		self.departureDate = $filter('date')(self.dateObj.departureDate, 'yyyy-MM-dd')
-		self.returnDate = $filter('date')(self.dateObj.returnDate, 'yyyy-MM-dd')
+		self.departureDate = $filter('date')(self.dateObj.departureDate, 'yyyy-MM-dd');
+		self.returnDate = $filter('date')(self.dateObj.returnDate, 'yyyy-MM-dd');
 
 		// Calls the Promise function and handle response
 		apiDataService.getFlightInfo(self.departureDate, self.returnDate, self.airportObj.code)

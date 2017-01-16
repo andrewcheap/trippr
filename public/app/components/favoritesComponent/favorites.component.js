@@ -1,5 +1,6 @@
 (function() {
 	'use strict';
+	/*jshint validthis: true */
 
 	angular.module('trippr.favorites')
 		.component('favorites', {
@@ -30,7 +31,6 @@
 
 			  // One all the values are set, then call the orderBy filter.
 			  self.userFavorites = orderBy(self.userFavorites, self.propertyName, self.reverse);
-
-			};
+			}
 	}
 })();

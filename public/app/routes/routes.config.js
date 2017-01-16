@@ -5,8 +5,6 @@
 		.config(['$routeProvider', configRoutes]);
 
 		function configRoutes($routeProvider) {
-			console.log("here");
-
 			$routeProvider
 				.when('/', {
 					template: '<search></search>'

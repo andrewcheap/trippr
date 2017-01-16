@@ -1,5 +1,6 @@
 (function() {
 	'use strict';
+	/*jshint validthis: true */
 
 	angular.module('trippr.airportSearch')
 		.component('airportSearch', {
@@ -9,7 +10,7 @@
 			bindings: {
 					valid: "="
 				}
-		})
+		});
 
 		function airportSearchController($q, $scope, airportCodeService) {
 			var self = this;
@@ -29,7 +30,6 @@
 					// Validate that the airport input is not empty
 					self.valid  = ($scope.airport !== null && $scope.airport !== "");
 				}
-				
-			})
+			});
 		}
 })();

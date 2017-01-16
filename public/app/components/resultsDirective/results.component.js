@@ -1,5 +1,6 @@
 (function() {
 	'use strict';
+	/*jshint validthis: true */
 
 	angular.module('trippr.results')
 		.component('results', {
@@ -68,7 +69,7 @@
 			  // Reset the pagingation to the first page
 			  setPagingData(1);
 
-			};
+			}
 
 			// Save flight to local storage
 			function saveFlight(flight) {
@@ -83,7 +84,7 @@
 						// Add the favorited items to the array
 						favorites.push(item);
 					}
-				})
+				});
 
 				// Overwrite the storage with the new array
 				localStorage.setItem('favoritesArray', JSON.stringify(favorites));

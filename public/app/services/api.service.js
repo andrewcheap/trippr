@@ -1,5 +1,6 @@
 (function() {
   'use strict';
+  /*jshint validthis: true */
 
   angular.module('trippr.search')
     .service('apiDataService', ['$http', '$q', apiDataService]);
@@ -23,13 +24,13 @@
           if(response.data.status) {
             deferred.resolve(response.data);
           } else {
-            deferred.reject(response.data.message)
+            deferred.reject(response.data.message);
           }
             
         }, function(data) {
             // Error callback rejects the promise
             deferred.reject(data);
-        })
+        });
         
         // Retrieve the promise once it has been resolved or rejected
         return deferred.promise;

@@ -1,5 +1,6 @@
 (function() {
   'use strict';
+  /*jshint validthis: true */
 
   angular.module('trippr.airportSearch')
     .service('airportCodeService', ['$http', '$q', airportCodeService]);
@@ -19,7 +20,7 @@
         // Create promise instance
         var deferred = $q.defer();
 
-        var url = '../assets/js/airports.json';
+        var url = '../../assets/js/airports.json';
 
         // Make a request for the data.
         $http.get(url).then(function(response) {
@@ -30,7 +31,7 @@
         }, function(data) {
             // Error callback, reject the promise
             deferred.reject(data);
-        })
+        });
         
         // Retrieve the promise once it has been resolved or rejected
         return deferred.promise;

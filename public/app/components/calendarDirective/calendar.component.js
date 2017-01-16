@@ -1,12 +1,13 @@
 (function() {
 	'use strict';
+	/*jshint validthis: true */
 
 	angular.module('trippr.calendar')
 		.component('calendar', {
 			templateUrl: 'app/components/calendarDirective/calendar.template.html',
 			controller: calendarController,
 			controllerAs: 'calendar',
-		})
+		});
 
 		function calendarController(calendarDateService) {
 
@@ -27,7 +28,7 @@
 
 			self.popupDepartureCalendar = {
 				opened: false
-			}
+			};
 
 			function openDepartureCalendar() {
 				self.popupDepartureCalendar.opened = true;
@@ -35,7 +36,7 @@
 
 			self.popupReturnCalendar = {
 				opened: false
-			}
+			};
 
 			function openReturnCalendar() {
 				self.popupReturnCalendar.opened = true;
@@ -46,7 +47,7 @@
 				maxDate: new Date(new Date().setFullYear(new Date().getFullYear() + 1)),
 				minDate: new Date(),
 				startingDay: 1
-			}
+			};
 
 
 			// called when the dates are changed in the calendar

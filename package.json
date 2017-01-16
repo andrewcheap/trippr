@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "App to find cheap flights by date",
   "dependencies": {
-   "adm-zip": "~0.4.4",
+    "adm-zip": "~0.4.4",
     "async": "latest",
     "aws-sdk": "~1.13.0",
     "body-parser": "latest",
@@ -44,10 +44,16 @@
     "string": "~1.8.0",
     "superagent": "^0.19.0",
     "underscore": "latest",
-    "validator": "^3.19.1" 
+    "validator": "^3.19.1"
   },
   "devDependencies": {
     "chai": "latest",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0",
+    "jshint": "^2.9.4",
     "mocha": "latest",
     "sabre-dev-studio": "latest",
     "should": "latest",
