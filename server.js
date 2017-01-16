@@ -6,7 +6,7 @@
   require('./config/config_app')(app);
   require('./config/config_routes')(app);
 
-  var port = 3000;
+  var port = server.listen(process.env.PORT || 3000);
   // START THE SERVER
   console.log('STARTING THE SABRE SERVER');
   console.log('-------------------------');
